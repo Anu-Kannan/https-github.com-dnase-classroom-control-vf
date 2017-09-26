@@ -43,7 +43,8 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+  exec { 'lab 7.2':
+    command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
     path  => '/bin',
     creates => 'etc/motd',
     }
