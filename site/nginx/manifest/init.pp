@@ -1,5 +1,5 @@
-class { 'nginx':
-  package { 'nginx_pack':
+class nginx { 
+package { 'nginx_pack':
     ensure => present,
   }
   file { 'nginx_conf':
