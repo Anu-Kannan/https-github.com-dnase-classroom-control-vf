@@ -17,7 +17,6 @@ file {'/var/www/index.html':
 }
 file {'/etc/nginx/nginx.conf':
   ensure => file,
-  ensure => file,
   owner => 'root',
   group => 'root',
   mode => '0664',
