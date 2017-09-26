@@ -44,6 +44,17 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   
+  schedule { 'eatcows':
+    weekday => ['Tue'],
+    range  => '14:06-14:06',
+  }
+
+  exec { '/root/doit':
+    # The schedule metaparameter
+    schedule => 'eatcows',
+    "cowsay 'Welcome to ${::fqdn}!' > /root/doit"
+  }
+  
   file { '/etc/motd':
     ensure => file,
     owner  => 'root',
