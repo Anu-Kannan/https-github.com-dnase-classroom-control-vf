@@ -45,7 +45,7 @@ node default {
   include role::classroom
   exec { 'lab 7.2':
     command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-    path  => '/bin',
+    path  => '/usr/local/bin',
     creates => '/etc/motd',
     }
 }
