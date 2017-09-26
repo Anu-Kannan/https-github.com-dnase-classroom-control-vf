@@ -10,3 +10,5 @@ fi
 
 # User specific aliases and functions
 export PATH=$PATH:/usr/local/bin
+
+cowsay "One more thing..."
