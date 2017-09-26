@@ -1,4 +1,4 @@
-class changeName {
+class users {
   user { 'fundamentals': ensure => present,
   }
   
