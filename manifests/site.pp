@@ -44,6 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   exec {"cowsay 'welcome to MBTA ${::fqdn}' >/etc/motd":
-  
+  path => '/usr/bin',
+  creates => '/etc/motd',
   }
 }
