@@ -45,6 +45,6 @@ node default {
   include role::classroom
   file {'/etc/motd':
   ensure => present,
-  content = 'just a test by dian',
+  content => 'just a test by dian',
   }
 }
