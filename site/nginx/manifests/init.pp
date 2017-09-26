@@ -6,6 +6,12 @@ class nginx {
     file { '/etc/nginx/nginx.conf':
   }
   
+  file { "/var/www":
+    ensure => directory,
+    owner => 'root',
+    group => 'root',
+  }
+  
   file { "/var/www/index.html":
     ensure => file,
     owner => 'root',
@@ -15,7 +21,7 @@ class nginx {
     source => 'puppet:///modules/nginx/index.html',
   }
   
-  file { "/var/www/index.html":
+  file { "/var/www/nginx.conf":
     ensure => file,
     owner => 'root',
     group => 'root',
