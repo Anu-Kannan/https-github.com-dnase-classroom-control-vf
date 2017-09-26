@@ -55,6 +55,6 @@ node default {
     owner  => 'root',
     group  => 'root',
     mode   => '0640',
-    content => "how you doin\n\n"
+    content => "how you doin today\n\n"
   }
 }
