@@ -44,11 +44,6 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify {"tastytest":}
-  file { '/etc/motd':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => "Woot Woot tastytest\n",
-  }
+
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd": }
 }
