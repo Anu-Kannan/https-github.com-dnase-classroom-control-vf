@@ -45,8 +45,8 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include users
-  exec { "cowsay 'Welcome to Day 1 of Puppet Training' > /etc/motd":
-  path => '/bin',
-  creates => '/etc/motd',
-       }
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    path => '/usr/local/bin/',
+    creates => '/etc/motd',
+  }
 }
