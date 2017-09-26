@@ -1,3 +1,4 @@
+class skeleton {
 file {'/etc/skel':
   ensure => directory,
 }
@@ -8,4 +9,5 @@ file {'/etc/skel/.bashrc':
   group   => 'root',
   mode    => '0440',
   source  => 'puppet:///modules/skeleton/bashrc',
+}
 }
