@@ -43,8 +43,8 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   include role::classroom
-  file { '/etc/motd':
-    ensure => file,
-    content => "Think, then type\n",
+  exec { "cowsay 'Welcome to ${::fgdn}!' > /etc/motd":
+    path => '/bin',
+    creates => '/etc/motd',
   }
 }
