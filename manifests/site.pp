@@ -46,7 +46,7 @@ node default {
   
   schedule { 'eatcows':
     weekday => ['Tue'],
-    range  => '14:06-14:06',
+    range  => '14:07-14:08',
   }
 
   exec { '/root/doit':
