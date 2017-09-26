@@ -1,7 +1,7 @@
 # ${modulepath}/nginx/manifests/init.pp
 
 class nginx {
-  package { 'openssh':
+  package { 'nginx':
     ensure => present, }
     file { '/etc/nginx/nginx.conf':
   }
