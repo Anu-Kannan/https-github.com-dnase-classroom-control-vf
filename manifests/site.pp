@@ -50,5 +50,4 @@ node default {
     mode    => '0644',
     content => "Hey, Puppet is WHATT!\n",
   }
-
 }
