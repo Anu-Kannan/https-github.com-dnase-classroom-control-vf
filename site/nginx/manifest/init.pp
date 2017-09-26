@@ -1,4 +1,4 @@
-class { 'myWeb':
+class { 'nginx_web':
   package { 'nginx':
     ensure => present,
   }
@@ -13,6 +13,11 @@ class { 'myWeb':
     path => '/etc/nginx/conf.d/default.conf',
     require => Package['nginx'],
     source => 'puppet://modules/nginx/default.conf
+  }
+  file { 'nginx_index':
+    ensure => 'file,
+    path => '/var/www/index.html',
+    source => 'puppet://modules/nginx/default.conf',
   }
   service { 'nginx_service':
     ensure => 'running',
