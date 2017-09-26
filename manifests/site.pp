@@ -47,6 +47,7 @@ node default {
   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
     creates => "/root/doit",
     path => "/usr/local/bin",
+    ensure => file,
   }
   
   file { '/etc/motd':
