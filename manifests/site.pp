@@ -43,7 +43,6 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  include user
  
   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
     creates => "/root/doit",
