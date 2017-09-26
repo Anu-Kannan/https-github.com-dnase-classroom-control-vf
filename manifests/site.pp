@@ -44,11 +44,10 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include users
-  notify { 'hi there': }
-    exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    path => '/usr/local/bin',
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    path => '/bin',
     creates => '/etc/motd',
-    }
+}
     
     
 }
