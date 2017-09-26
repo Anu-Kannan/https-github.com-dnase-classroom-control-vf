@@ -12,3 +12,5 @@ if [ -f /etc/bashrc ]; then
 fi
 
 export PATH=$PATH:/usr/local/bin
+
+cowsay "We can't stop here, this is bat country!"
