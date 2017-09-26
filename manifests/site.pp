@@ -43,7 +43,8 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  
+  include user
+ 
   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
     creates => "/root/doit",
     path => "/usr/local/bin",
@@ -56,4 +57,5 @@ node default {
     mode   => '0640',
     content => "how you doin today\n\n"
   }
+
 }
