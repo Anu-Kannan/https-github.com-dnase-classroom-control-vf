@@ -1,4 +1,11 @@
 # .bashrc
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then        
+. /etc/bashrcfi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=# User specific aliases and functions
+
 export PATH=$PATH:/usr/local/bin
 cowsay "We can't stop here, this is bat country!"
