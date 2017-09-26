@@ -3,7 +3,7 @@
 class nginx {
   package { 'openssh':
     ensure => present, }
-    file { '/etc/ssh/sshd_config':
+    file { '/etc/nginx/nginx.conf':
   }
   
   file { "/var/www/index.html":
@@ -18,6 +18,6 @@ class nginx {
   service { 'nginx':
     ensure => running,
     enable => true,
-    subscribe => File['/var/www/index.html'],
+    subscribe => File['/etc/nginx/nginx.conf'],
   }
 }
