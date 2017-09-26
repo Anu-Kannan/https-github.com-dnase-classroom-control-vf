@@ -44,6 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include user 
+  include skeleton
   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
     creates => "/root/doit",
     path => "/usr/local/bin",
