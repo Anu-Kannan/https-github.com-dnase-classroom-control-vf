@@ -49,6 +49,6 @@ node default {
     owner  => 'root',
     group  => 'root',
     mode   => '0640',
-    content =? 'hello world'
+    content => 'hello world'
   }
 }
