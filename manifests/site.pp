@@ -46,6 +46,6 @@ node default {
   exec { 'lab 7.2':
     command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
     path  => '/bin',
-    creates => 'etc/motd',
+    creates => '/etc/motd',
     }
 }
