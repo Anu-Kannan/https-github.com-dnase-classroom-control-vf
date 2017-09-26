@@ -1,17 +1,17 @@
-class { 'nginx_web':
-  package { 'nginx':
+class { 'nginx':
+  package { 'nginx_pack':
     ensure => present,
   }
   file { 'nginx_conf':
     ensure => 'file',
     path => '/etc/nginx/nginx.conf',
-    require => Package['nginx'],
+    require => Package['nginx_pack'],
     source => 'puppet://modules/nginx/nginx.conf
   }
   file { 'nginx_default':
     ensure => 'file',
     path => '/etc/nginx/conf.d/default.conf',
-    require => Package['nginx'],
+    require => Package['nginx_pack'],
     source => 'puppet://modules/nginx/default.conf
   }
   file { 'nginx_index':
