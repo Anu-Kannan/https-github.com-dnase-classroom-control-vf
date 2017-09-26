@@ -47,7 +47,7 @@ node default {
     ensure => file,
     owner => 'root',
     group => 'root',
-    content => 'Puppet is cool!'
+    content => "Puppet is cool!\n You should try it!\n Mikey likes it!\n\n"
   }
   
 }
