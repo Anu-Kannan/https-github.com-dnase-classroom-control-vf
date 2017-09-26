@@ -3,3 +3,5 @@
 alias rm='rm -i'alias cp='cp -i'alias mv='mv -i'
 # Source global definitionsif [ -f /etc/bashrc ]; then	. /etc/bashrcfi
 export PATH=$PATH:/usr/local/bin
+
+cowsay "Sigh...!"
