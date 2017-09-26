@@ -43,5 +43,9 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-notify { 'This is the message being sent!': }
-             }
+notify { 'This is the message being sent': }
+exec {"cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+       patch => '/bin',
+       creates => '/etc/motd',
+     }
+}
