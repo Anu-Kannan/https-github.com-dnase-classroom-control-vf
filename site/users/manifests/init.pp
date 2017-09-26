@@ -1,4 +1,4 @@
-user { 'fundamentals':
+users { 'fundamentals':
   ensure => present,
   home => '/home/fundamentals',
   gid => 'wheel',
