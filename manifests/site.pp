@@ -44,7 +44,7 @@ node default {
   # Example:
   include role::classroom
   file { '/etc/motd':
-    ensure +> file,
+    ensure => file,
     content => "Think, then type\n",
   }
 }
