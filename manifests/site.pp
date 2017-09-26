@@ -26,6 +26,7 @@ ini_setting { 'random ordering':
   section => 'agent',
   setting => 'ordering',
   value   => 'title-hash',
+  #   class { 'my_class': }
 }
 
 # DEFAULT NODE
@@ -41,6 +42,9 @@ ini_setting { 'random ordering':
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
-  #   class { 'my_class': }
   include role::classroom
+  file { '/etc/motd':
+    ensure +> file,
+    content => "Think, then type\n",
+  }
 }
