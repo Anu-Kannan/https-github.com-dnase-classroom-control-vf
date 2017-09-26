@@ -47,8 +47,5 @@ node default {
   file {'/etc/motd':
   ensure => absent,
   }
-  exec {"cowsay 'welcome to MBTA ${::fqdn}' >/etc/motd":
-  path => '/usr/bin',
-  creates => '/etc/motd',
-  }
+  
 }
