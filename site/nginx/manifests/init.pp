@@ -11,7 +11,7 @@ class nginx {
     owner => 'root',
     group => 'root',
     mode => '0644',
-    require => Package['openssh'],
+    require => Package['nginx'],
     source => 'puppet:///modules/nginx/index.html',
   }
 
