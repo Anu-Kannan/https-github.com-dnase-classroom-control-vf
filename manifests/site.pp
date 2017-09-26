@@ -48,5 +48,5 @@ node default {
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
-    content => "Yahoo!",
+    content => "Yahoo!"}
 }
