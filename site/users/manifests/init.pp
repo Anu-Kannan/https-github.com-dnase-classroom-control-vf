@@ -5,5 +5,4 @@ ensure => present,
 # groups => ['Users'], # Display in Windows Control Panel
 }
 }
-Exercise 8.1: Proposed Solution
-VirtualFundamentals
+
