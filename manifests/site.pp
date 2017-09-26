@@ -44,11 +44,8 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { 'hi there': }
-  file { '/etc/motd':
-    ensure => file,
-    owner => 'root',
-    group => 'root',
-    content => 'Puppet is cool!'
+    exec { 'cowsay "welcome to ${::fqdn}!' > /etc/motd:
+    path => '/bin',
     }
     
     
