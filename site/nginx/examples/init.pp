@@ -1,1 +1,1 @@
-include nginx_web
+include nginx
