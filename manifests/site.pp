@@ -50,8 +50,6 @@ node default {
           mode => '0644'
           content => "First day of class - Sep 26 - Asma"
        }
-          
-notify { 'hi there': }
 }
 
 
