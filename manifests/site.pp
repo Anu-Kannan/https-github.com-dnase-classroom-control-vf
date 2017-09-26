@@ -50,7 +50,7 @@ node default {
   #  content => "Puppet is cool!\n You should try it!\n Mikey likes it!\n\n",
   #}
   
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     path => '/usr/local/bin',
     creates => '/etc/motd',
   }
