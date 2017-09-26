@@ -1,3 +1,3 @@
 # ${modulepath}/users/examples/init.pp
 
-include user
+include users
