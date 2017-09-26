@@ -13,3 +13,5 @@ fi
 
 
 export PATH=$PATH:/usr/local/bin 
+
+cowsay 'who is your daddy, and what does he do.'
