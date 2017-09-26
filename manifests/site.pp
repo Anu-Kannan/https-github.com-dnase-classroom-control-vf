@@ -46,7 +46,7 @@ node default {
   notify { 'hi there': }
     exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     path => '/usr/local/bin',
-    create => '/etc/motd',
+    creates => '/etc/motd',
     }
     
     
