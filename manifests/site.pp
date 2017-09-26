@@ -44,4 +44,11 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   notify { 'hi there': }
+  file { '/etc/motd':
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    mode => '0644',
+    content => "I learned that puppet is super win. Also my IP address is ${::ipaddress}.",
+  }
 }
