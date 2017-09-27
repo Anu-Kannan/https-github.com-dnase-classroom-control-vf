@@ -22,7 +22,7 @@ class nginx {
   service { 'nginx_service':
     ensure => 'running',
     enable => 'true',    
-    subscribe => File ['/etc/nginx/nginx.conf'],
+    subscribe => File['nginx_conf'],
     name => 'nginx',
   }
 }
