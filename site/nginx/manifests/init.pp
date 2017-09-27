@@ -22,8 +22,8 @@ class nginx {
   }
   
   $user = $facts['os']['family'] ? {
-    'RedHat' => 'nginx',
-    'Debian' => 'www-data',
+    'redhat' => 'nginx',
+    'debian' => 'www-data',
     'windows' => 'nobody',
   }
   
@@ -33,7 +33,7 @@ class nginx {
     mode => '0644',
   }
   
-  package { $Package:
+  package { $package:
     ensure => present,
   }
   
