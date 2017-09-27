@@ -28,6 +28,8 @@ ini_setting { 'random ordering':
   value   => 'title-hash',
 }
 
+# Node definitions
+
 node 'yan.puppetlabs.vm' {
   include role::classroom
   include users
