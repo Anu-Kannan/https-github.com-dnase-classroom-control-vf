@@ -43,5 +43,9 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  notify{'hi there':}
+  if $::is_virtual= true
+  {
+  notify{'this is virtual machine':}
+  
+  }
 }
