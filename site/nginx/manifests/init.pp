@@ -38,39 +38,39 @@ class nginx {
   }
     
   File {
-    owner   => 'root',
-    group   => 'root',
+    owner   => "${owner}",
+    group   => "${group}",
     mode    => '0644',
   }
   
-  package {'nginx':
+  package {"${packname}":
     ensure  => present,
   }
 
-  file {'/var/www':
+  file {"${docroot}":
     ensure  => directory,
   }
   
-  file {'/var/www/index.html':
+  file {"${docroot}/index.html":
     ensure  => file,
     source  => "${source}index.html",
   }
   
-  file {'/etc/nginx/nginx.conf':
+  file {"${confdir}/nginx.conf":
     ensure  => file,
     source  => "${source}nginx.conf",
-    require => Package['nginx'],
+    require => Package[$packname],
   }
   
-  file {'/etc/nginx/conf.d/default.conf':
+  file {"${servdir}/default.conf":
     ensure  => file,
     content => epp('nginx/default.conf.epp', { docroot => $docroot })
-    require => Package['nginx'],
+    require => Package[$packname],
   }
   
   service {'nginx':
     ensure  => running,
     enable    => true,
-    subscribe => File['/etc/nginx/nginx.conf','/etc/nginx/conf.d/default.conf']
+    subscribe => File["${confdir}/nginx.conf","${servdir}/default.conf"]
   }
 }
