@@ -12,7 +12,7 @@ class nginx {
     ensure => 'file',
     path => '/etc/nginx/conf.d/default.conf',
     require => Package['nginx_pack'],
-    source => 'puppet:///modules/nginx/default.conf,'
+    source => 'puppet:///modules/nginx/default.conf',
   }
   file { 'nginx_index':
     ensure => 'file',
