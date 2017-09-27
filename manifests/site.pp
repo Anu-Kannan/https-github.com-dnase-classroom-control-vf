@@ -43,6 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
+  include nginx
   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
 # The schedule metaparameter
      path => '/bin',
