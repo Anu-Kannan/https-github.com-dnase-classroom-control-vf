@@ -9,8 +9,9 @@ file { '/var/www/index.html':
 ensure => file,
 source => 'puppet:///modules/nginx/index.html',
 }
-file { '/etc/nginx/nginx.conf':
+file { 'nginx.conf':
 ensure => file,
+path => '/etc/nginx/nginx.conf',
 source => 'puppet:///modules/nginx/nginx.conf',
 require => Package['nginx'],
 }
