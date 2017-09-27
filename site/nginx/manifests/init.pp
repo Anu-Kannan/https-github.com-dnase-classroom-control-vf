@@ -1,4 +1,6 @@
 class nginx {
+  $source = 'puppet:///modules/nginx/'
+  
   File {
     owner   => 'root',
     group   => 'root',
@@ -16,17 +18,17 @@ class nginx {
   
   file {'/var/www/index.html':
     ensure  => file,
-    source  => 'puppet:///modules/nginx/index.html',
+    source  => "${source}index.html",
   }
   
   file {'/etc/nginx/nginx.conf':
     ensure  => file,
-    source  => 'puppet:///modules/nginx/nginx.conf',
+    source  => "${source}nginx.conf",
   }
   
   file {'/etc/nginx/conf.d/default.conf':
     ensure  => file,
-    source  => 'puppet:///modules/nginx/default.conf',
+    source  => "${source}default.conf",
   }
   
   service {'nginx':
