@@ -54,10 +54,10 @@ class nginx {
 		ensure => file,
 		path => '/etc/nginx/nginx.conf',
 		content => epp('nginx/nginx.conf.epp', {
-			nginxuser => $user,
-			logDir => $logdir,
-			configDir => $confdir,
-			blockDir => $blockdir,
+			nginxUser => $nginxUser,
+			logDir => $logDir,
+			configDir => $confDir,
+			blockDir => $blockDir,
 		}),
 		require => Package['nginx'],
 	}
