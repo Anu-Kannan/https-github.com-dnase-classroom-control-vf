@@ -1,5 +1,4 @@
-class { 'memcached':
-
+class memcached {
 
 	file { '/etc/sysconfig/memcached':
 		ensure => file,
