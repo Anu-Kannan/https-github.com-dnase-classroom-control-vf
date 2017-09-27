@@ -9,7 +9,7 @@ class nginx {
     ensure => file,
     source => 'puppet:///modules/nginx/index.html',
   }
-  file { '/etc/nginx/niginx.conf':
+  file { '/etc/nginx/nginx.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
