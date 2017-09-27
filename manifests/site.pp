@@ -48,6 +48,14 @@ node default {
     path => '/bin',
     creates => '/etc/motd',
 }
-    
+    user { 'ftp':
+  ensure => present,
+  uid    => 501,
+}
+
+user { 'ftp':
+  ensure => present,
+  uid    => 502,
+}
     
 }
