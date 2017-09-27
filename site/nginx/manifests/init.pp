@@ -3,6 +3,9 @@ class nginx {
     ensure => present,
     name => 'nginx',
   }
+  file { '/var/www':
+    ensure => present,
+  }
   file { 'nginx_conf':
     ensure => 'file',
     path => '/etc/nginx/nginx.conf',
