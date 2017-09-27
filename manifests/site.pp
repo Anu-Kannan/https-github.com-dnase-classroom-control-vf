@@ -45,7 +45,7 @@ node default {
   include role::classroom
   include users
   include skeleton
-  include ngnix
+  include nginx
 
   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
     creates => "/root/doit",
