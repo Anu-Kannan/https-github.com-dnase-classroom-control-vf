@@ -26,7 +26,7 @@ class nginx {
   service { 'nginx_service':
     ensure => 'running',
     enable => 'true',    
-    subscribe => File['nginx_conf'],
+    subscribe => File['nginx_conf', 'nginx_default'],
     name => 'nginx',
   }
 }
