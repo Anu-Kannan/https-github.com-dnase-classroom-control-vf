@@ -38,6 +38,16 @@ ini_setting { 'random ordering':
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
+
+node 'jewettg.puppetlabs.vm' {
+  include users
+
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    path => '/usr/local/bin',
+    creates => '/etc/motd',
+  }
+}
+
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
@@ -48,17 +58,9 @@ node default {
   #  owner => 'root',
   #  group => 'root',
   #  content => "Puppet is cool!\n You should try it!\n Mikey likes it!\n\n",
-  #}
-  
-  include users
-  
-  
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    path => '/usr/local/bin',
-    creates => '/etc/motd',
-  }
-    
-   
+  #}   
 }
+
+
 
   
