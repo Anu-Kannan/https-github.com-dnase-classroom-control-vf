@@ -23,8 +23,14 @@ file{'/etc/nginx/conf.d/default.conf':
    group=>'root',
    mode=>'0775',
    source=>'puppet:///nginx/default.conf',
+   require => Package['nginx'],
+   notify => Service['nginx'],
 }
-file{'index.html':
+service { 'nginx':
+   ensure => running,
+   enable => true,
+}   
+file{'/var/www/index.html':
    ensure=>file,
    owner=>'root',
    group=>'root',
