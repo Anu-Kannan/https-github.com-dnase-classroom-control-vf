@@ -43,21 +43,24 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  include users
-  include skeleton
-  include nginx
-
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
-    creates => "/root/doit",
-    path => "/usr/local/bin",
-  }
   
-  file { '/etc/motd':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0640',
-    content => "how you doin today\n\n"
-  }
-
+  
+#   include users
+#   include skeleton
+#   include nginx
+#     
+#   exec { "cowsay 'Welcome to ${::fqdn}!' > /root/doit":
+#     creates => "/root/doit",
+#     path => "/usr/local/bin",
+#   }
+#   
+#   file { '/etc/motd':
+#     ensure => file,
+#     owner  => 'root',
+#     group  => 'root',
+#     mode   => '0640',
+#     content => "how you doin today\n\n"
+#   }
+  
+  
 }
