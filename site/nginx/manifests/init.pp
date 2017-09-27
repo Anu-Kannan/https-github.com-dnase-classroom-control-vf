@@ -45,12 +45,13 @@ class nginx {
     ensure  => directory,
   }
   
-  file {"${docroot}/index.html":
+  file {'index.html':
     ensure  => file,
+    path => "${docroot}/index.html"
     source  => "${source}index.html",
   }
   
-  file {'nginx.conf'
+  file {'nginx.conf':
     ensure  => file,
     path = "${confdir}/nginx.conf",
     content => epp('nginx/nginx.conf.epp', { 
