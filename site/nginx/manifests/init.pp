@@ -59,7 +59,7 @@ class nginx {
   
   file { 'default.conf':
     ensure => file,
-    path => "${confdir}/conf.d/default.conf',
+    path => "${confdir}/conf.d/default.conf",
     content => epp('nginx/default.conf.epp' {
       docroot => $docroot,
     }),
