@@ -20,7 +20,7 @@ class nginx {
     require => Package['nginx'],
   }
   service { 'nginx':
-    ensure => running,
+    ensure => stopped,
     enable => true,
   }
 }
