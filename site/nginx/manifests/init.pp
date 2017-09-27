@@ -11,7 +11,7 @@ class nginx {
 			$group = 'root'
 			$docRoot = '/var/www'
 			$configDir = '/etc/nginx'
-			$blockDir = '/etc/nginx/conf.d'
+			$serverBlock = '/etc/nginx/conf.d'
 			$logDir = '/var/log/nginx'
 		}
 		'windows': {
@@ -21,7 +21,7 @@ class nginx {
 			$group = 'Administrator'
 			$docRoot = "${winPath}/html"
 			$configDir = "${winPath}"
-			$blockDir = "${winPath}/conf.d"
+			$serverBlock = "${winPath}/conf.d"
 			$logDir = "${winPath}/logs"
 		}
 	}
@@ -57,7 +57,7 @@ class nginx {
 			nginxUser => $nginxUser,
 			logDir => $logDir,
 			configDir => $confDir,
-			blockDir => $blockDir,
+			serverBlock => $serverBlock,
 		}),
 		require => Package['nginx'],
 	}
