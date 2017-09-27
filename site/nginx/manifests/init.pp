@@ -53,25 +53,25 @@ class nginx {
   
   file {'nginx.conf':
     ensure  => file,
-    path = "${confdir}/nginx.conf",
+    path => "${confdir}/nginx.conf",
     content => epp('nginx/nginx.conf.epp', { 
         runas => $runas,
         logsdir => $logsdir,
         confdif => $confdir,
         servdir => $servdir,
       }
-    )
+    ),
     require => Package[$packname],
   }
   
   file {'default.conf':
     ensure  => file,
-    path = "${servdir}/default.conf",
+    path => "${servdir}/default.conf",
     content => epp('nginx/default.conf.epp', { 
         port => $port,
         docroot => $docroot,
       }
-    )
+    ),
     require => Package[$packname],
   }
   
