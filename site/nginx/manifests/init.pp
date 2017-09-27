@@ -5,7 +5,6 @@ class nginx {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => Package['nginx'],
   }
   
   package {'nginx':
@@ -24,11 +23,13 @@ class nginx {
   file {'/etc/nginx/nginx.conf':
     ensure  => file,
     source  => "${source}nginx.conf",
+    require => Package['nginx'],
   }
   
   file {'/etc/nginx/conf.d/default.conf':
     ensure  => file,
     source  => "${source}default.conf",
+    require => Package['nginx'],
   }
   
   service {'nginx':
