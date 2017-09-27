@@ -1,7 +1,10 @@
 class nginx {
   $source = 'puppet:///modules/nginx/'
-  case $facts['os']['name'] {
-    'redhat', 'centos': { 
+  $service  = 'nginx'
+  $port = '80'
+  
+  case $::osfamily {
+    'RedHat', 'Debian': { 
       $packname = 'nginx'
       $owner    = 'root'
       $group    = 'root'
@@ -9,20 +12,7 @@ class nginx {
       $confdir  = '/etc/nginx'
       $servdir  = '/etc/nginx/conf.d'
       $logsdir  = '/var/log/nginx'
-      $service  = 'nginx'
-      $runas    = 'nginx'
-    } # apply the RedHat class
-    'debian', 'ubuntu': { 
-      $packname = 'nginx'
-      $owner    = 'root'
-      $group    = 'root'
-      $docroot  = '/var/www'
-      $confdir  = '/etc/nginx'
-      $servdir  = '/etc/nginx/conf.d'
-      $logsdir  = '/var/log/nginx'
-      $service  = 'nginx'
-      $runas    = 'www-data'      
-    } # apply the Debian class
+    } 
     'windows'         : {
       $packname = 'nginx-service'
       $owner    = 'Administrator'
@@ -31,23 +21,29 @@ class nginx {
       $confdir  = 'C:/ProgramData/nginx'
       $servdir  = 'C:/ProgramData/nginx/conf.d'
       $logsdir  = 'C:/ProgramData/nginx/logs'
-      $service  = 'nginx'
       $runas    = 'nobody'
     } # apply the Windows class
     default:  { fail("Unsupported OS: ${facts['os']['name']}") }
   }
+  
+  
+  $runas    = $::osfamily ? {
+    'Debian' => 'www-data',
+    'windows' => 'nobody',
+    default => 'nginx',
+  }
     
   File {
-    owner   => "${owner}",
-    group   => "${group}",
+    owner   => $owner,
+    group   => $group,
     mode    => '0644',
   }
   
-  package {"${packname}":
+  package {$packname:
     ensure  => present,
   }
 
-  file {"${docroot}":
+  file {$docroot:
     ensure  => directory,
   }
   
@@ -58,13 +54,23 @@ class nginx {
   
   file {"${confdir}/nginx.conf":
     ensure  => file,
-    source  => "${source}nginx.conf",
+    content => epp('nginx/nginx.conf.epp', { 
+        runas => $runas,
+        logsdir => $logsdir,
+        confdif => $confdir,
+        servdir => $servdir,
+      }
+    )
     require => Package[$packname],
   }
   
   file {"${servdir}/default.conf":
     ensure  => file,
-    content => epp('nginx/default.conf.epp', { docroot => $docroot })
+    content => epp('nginx/default.conf.epp', { 
+        port => $port,
+        docroot => $docroot,
+      }
+    )
     require => Package[$packname],
   }
   
