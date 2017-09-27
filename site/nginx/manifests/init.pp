@@ -23,9 +23,9 @@ class nginx {
   
   # user the service will run as. Used in the nginx.conf.epp template
   $user = $facts['os']['family'] ? {
-    'redhat' => 'nginx',
     'debian' => 'www-data',
     'windows' => 'nobody',
+    default => 'nginx',
   }
   
   File {
