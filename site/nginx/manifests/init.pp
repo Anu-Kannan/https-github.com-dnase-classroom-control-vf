@@ -67,6 +67,6 @@ file { '/etc/nginx/conf.d/default.conf':
 service { 'nginx':
   ensure => running,
   enable => true,
-  subscribe => File['nginx.conf', 'default.conf'],
+  subscribe => File['/etc/nginx/nginx.conf', '/etc/nginx/conf.d/default.conf'],
  }
 }
