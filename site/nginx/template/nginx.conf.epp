@@ -36,8 +36,8 @@ http {
 
     #gzip  on;
 
-    # Load config files from the <%= $confdir %>/conf.d directory
+    # Load config files from the conf.d directory
     # The default server is in conf.d/default.conf
-    include /etc/nginx/conf.d/*.conf;
+    include <%= $confdir %>/conf.d/*.conf;
 
 }
