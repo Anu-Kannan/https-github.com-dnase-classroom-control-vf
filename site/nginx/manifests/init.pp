@@ -4,15 +4,12 @@ package{ 'nginx':
 }
 file{'/var/www':
    ensure => directory,
-   owner => 'root',
-   group => 'root',
-   mode => '0775',
+   //owner => 'root',
+   //group => 'root',
+   //mode => '0775',
 }
 file{'nginx.conf':
    ensure=>file,
-   owner=>'root',
-   group=>'root',
-   mode=>'0664',
    path=>'/etc/nginx/nginx.conf'
    source=>'puppet:///modules/nginx/nginx.conf',
    require => Package['nginx'],
