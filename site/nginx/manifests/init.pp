@@ -1,5 +1,5 @@
 class nginx {
-$service =
+$service = 'nginx'
 $port = 80
 case $facts['os']['family'] {
 'redhat','debian' : {
