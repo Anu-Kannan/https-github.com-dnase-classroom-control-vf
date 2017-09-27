@@ -43,7 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  notify { 'hi y'all': }
+  notify { 'hi yall': }
   file { '/etc/motd':
     ensure => file,
     owner => 'root',
