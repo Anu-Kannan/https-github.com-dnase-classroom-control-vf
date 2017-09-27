@@ -5,12 +5,13 @@
 user              nginx;
 worker_processes  1;
 
-error_log  /var/log/nginx/error.log;
-#error_log  /var/log/nginx/error.log  notice;
-#error_log  /var/log/nginx/error.log  info;
+error_log   <%= $logDir %>/error.log;
+#error_log  <%= $logDir %>/error.log  notice;
+#error_log  <%= $logDir %>/error.log  info;
 
+<% if $fact['kernel'] != 'windows' { %>
 pid        /var/run/nginx.pid;
-
+<% } -%>
 
 events {
     worker_connections  1024;
@@ -18,7 +19,7 @@ events {
 
 
 http {
-    include       /etc/nginx/mime.types;
+    include       <%= $configDir =>/mime.types;
     default_type  application/octet-stream;
 
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
@@ -35,8 +36,8 @@ http {
 
     #gzip  on;
 
-    # Load config files from the /etc/nginx/conf.d directory
-    # The default server is in conf.d/default.conf
-    include /etc/nginx/conf.d/*.conf;
+    # Load config files from the <%= $serverBlock => directory
+    # The default server is in <%= $serverBlock =>/default.conf
+    include <%= $serverBlock =>/*.conf;
 
 }
