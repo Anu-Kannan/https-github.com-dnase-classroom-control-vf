@@ -53,9 +53,5 @@ node default {
   uid    => 501,
 }
 
-user { 'ftp':
-  ensure => present,
-  uid    => 502,
-}
     
 }
