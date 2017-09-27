@@ -17,9 +17,6 @@ file{'nginx.conf':
 }
 file{ 'default.conf':
    ensure=>file,
-   owner=>'root',
-   group=>'root',
-   mode=>'0775',
    path=>'/etc/nginx/conf.d/default.conf'
    source=>'puppet:///modules/nginx/default.conf',
    require => Package['nginx'],
@@ -32,9 +29,6 @@ service { 'nginx':
 }   
 file{'/var/www/index.html':
    ensure=>file,
-   owner=>'root',
-   group=>'root',
-   mode=>'0775',
    source=>'puppet:///modules/nginx/index.html',
 }
 }
