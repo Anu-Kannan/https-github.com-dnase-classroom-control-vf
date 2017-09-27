@@ -1,7 +1,7 @@
-server {
-    listen 80;
+ server {
+    listen <%= $port %>;
 
-    root /var/www;
+    root <%= $docroot %>;
     index index.html index.htm;
 
     server_name _;
