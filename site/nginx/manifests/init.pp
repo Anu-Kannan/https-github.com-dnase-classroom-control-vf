@@ -4,7 +4,7 @@ class nginx {
     name => 'nginx',
   }
   file { '/var/www':
-    ensure => present,
+    ensure => directory,
   }
   file { 'nginx_conf':
     ensure => 'file',
