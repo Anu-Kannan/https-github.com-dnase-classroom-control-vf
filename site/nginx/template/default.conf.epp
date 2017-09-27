@@ -1,1 +1,9 @@
 
+server {
+    listen 80;
+
+    root <%= $wwwdir %>;
+    index index.html index.htm;
+
+    server_name _;
+}
