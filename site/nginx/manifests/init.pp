@@ -12,13 +12,15 @@ class nginx {
   file { '/etc/nginx/niginx.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
   }
   file { '/etc/nginx/conf.d/default.conf':
     ensure => file,
     source => puppet:///modules/nginx/default.conf',
+    require => Package['nginx'],
   }
   service { 'nginx':
-    ensure => started
+    ensure => running
     enable => true
   }
 }
