@@ -1,7 +1,7 @@
 class nginx {
   File{
       owner => 'root',
-    group => 'root',
+      group => 'root',
   }
   package { 'nginx':
     ensure => present,
