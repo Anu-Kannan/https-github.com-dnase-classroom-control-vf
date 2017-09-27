@@ -24,7 +24,7 @@ file{ 'default.conf':
    group=>'root',
    mode=>'0775',
    path=>'/etc/nginx/conf.d/default.conf'
-   source=>'puppet:///modules/nginx/conf.d/default.conf',
+   source=>'puppet:///modules/nginx/default.conf',
    require => Package['nginx'],
    notify => Service['nginx'],
 }
