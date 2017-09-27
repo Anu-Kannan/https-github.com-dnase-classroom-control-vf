@@ -21,9 +21,7 @@ class nginx {
       $confdir  = 'C:/ProgramData/nginx'
       $servdir  = 'C:/ProgramData/nginx/conf.d'
       $logsdir  = 'C:/ProgramData/nginx/logs'
-      $runas    = 'nobody'
     } # apply the Windows class
-    default:  { fail("Unsupported OS: ${facts['os']['name']}") }
   }
   
   
@@ -52,8 +50,9 @@ class nginx {
     source  => "${source}index.html",
   }
   
-  file {"${confdir}/nginx.conf":
+  file {'nginx.conf'
     ensure  => file,
+    path = "${confdir}/nginx.conf",
     content => epp('nginx/nginx.conf.epp', { 
         runas => $runas,
         logsdir => $logsdir,
@@ -64,8 +63,9 @@ class nginx {
     require => Package[$packname],
   }
   
-  file {"${servdir}/default.conf":
+  file {'default.conf':
     ensure  => file,
+    path = "${servdir}/default.conf",
     content => epp('nginx/default.conf.epp', { 
         port => $port,
         docroot => $docroot,
@@ -77,6 +77,6 @@ class nginx {
   service {'nginx':
     ensure  => running,
     enable    => true,
-    subscribe => File["${confdir}/nginx.conf","${servdir}/default.conf"]
+    subscribe => File['nginx.conf','default.conf']
   }
 }
