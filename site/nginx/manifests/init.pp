@@ -1,4 +1,21 @@
 class nginx {
+  case $::osfamily {
+     'RedHat', 'Debian': {
+     $package = 'nginx'
+     $owner = 'root'
+     $group = 'root'
+     $docroot = '/var/www'
+     $confdir = '/etc/nginx'
+     $blockdir = '/etc/nginx/conf.d'
+     $logdir = '/var/log/nginx'
+     $service = 'nginx'
+    }
+    'windows': {
+     $package = 'nginx-service'
+     $owner = 'Administrator'
+     $group = 'Administrators'
+     $docroot = 'C:/ProgramData/nginx/html'
+     $confdir = 'C:/ProgramData/nginx'
 File {
     owner => 'root',
     group => 'root',
