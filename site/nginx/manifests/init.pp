@@ -22,10 +22,7 @@ file {'/etc/nginx/nginx.conf':
 }
 file { '/etc/nginx/conf.d':
   ensure => directory,
-  owner => 'root',
-  group => 'root',
-  mode => '0775',
-}
+  }
 file { '/etc/nginx/conf.d/default.conf':
   ensure => file,
   source => 'puppet:///modules/nginx/default.conf',
