@@ -44,15 +44,7 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include nginx
-  include users
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    path => '/bin',
-    creates => '/etc/motd',
-}
-    user { 'ftp':
-  ensure => present,
-  uid    => 14,
-}
+  }
 
     
 }
