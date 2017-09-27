@@ -45,6 +45,6 @@ node default {
 # class { 'my_class': }
 if $::virtual != 'physical' {
 $vmname = capitalize($::virtual)
-notify { "This is a ${vmname} virtual machine.": }
+notify { "This is a ${vmname} virtual machine. Added by Asma on Sep 27 for Lab 12.2": }
 }
 }
