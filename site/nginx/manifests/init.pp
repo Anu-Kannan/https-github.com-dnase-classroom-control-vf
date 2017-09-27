@@ -8,21 +8,23 @@ file{'/var/www':
    group => 'root',
    mode => '0775',
 }
-file{'/etc/nginx/nginx.conf':
+file{'nginx.conf':
    ensure=>file,
    owner=>'root',
    group=>'root',
    mode=>'0664',
+   path=>'/etc/nginx/nginx.conf'
    source=>'puppet:///modules/nginx/nginx.conf',
    require => Package['nginx'],
    notify => Service['nginx'],
 }
-file{'/etc/nginx/conf.d/default.conf':
+file{ 'default.conf':
    ensure=>file,
    owner=>'root',
    group=>'root',
    mode=>'0775',
-   source=>'puppet:///modules/nginx/default.conf',
+   path=>'/etc/nginx/conf.d/default.conf'
+   source=>'puppet:///modules/nginx/conf.d/default.conf',
    require => Package['nginx'],
    notify => Service['nginx'],
 }
