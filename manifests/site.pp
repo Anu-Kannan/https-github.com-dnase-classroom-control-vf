@@ -40,11 +40,6 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  include role::classroom
-  exec { "cowsay 'Welcome to ${::fgdn}!' > /etc/motd":
-    path => '/usr/local/bin',
-    creates => '/etc/motd',
-  }
+  notify { "${::fqdn} has no node definition": }
+
 }
