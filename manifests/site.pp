@@ -50,7 +50,7 @@ node default {
 }
     user { 'ftp':
   ensure => present,
-  uid    => 501,
+  uid    => 14,
 }
 
     
