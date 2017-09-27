@@ -1,6 +1,6 @@
 # For more information on configuration, see:#   * Official English Documentation: http://nginx.org/en/docs/#   * Official Russian Documentation: http://nginx.org/ru/docs/
 user              nginx;worker_processes  1;
-error_log  <%  >%error.log;#error_log  /var/log/nginx/error.log  notice;#error_log  /var/log/nginx/error.log  info;
+error_log  <% =$logdir  >%error.log;#error_log <% =$logdir  >%/error.log  notice;#error_log  <% =$logdir  >%/error.log  info;
 pid        /var/run/nginx.pid;
 
 events {    worker_connections  1024;}
