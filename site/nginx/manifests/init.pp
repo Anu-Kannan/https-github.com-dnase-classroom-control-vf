@@ -4,9 +4,10 @@ package{ 'nginx':
 }
 file{'/var/www':
    ensure => directory,
-   //owner => 'root',
-   //group => 'root',
-   //mode => '0775',
+}
+file{'/var/www/index.html':
+   ensure=>file,
+   source=>'puppet:///modules/nginx/index.html',
 }
 file{'nginx.conf':
    ensure=>file,
@@ -27,8 +28,4 @@ service { 'nginx':
    enable => true,
    subscribe=> File['nginx.conf','default.conf'],
 }   
-file{'/var/www/index.html':
-   ensure=>file,
-   source=>'puppet:///modules/nginx/index.html',
-}
 }
