@@ -2,14 +2,14 @@
 #   * Official English Documentation: http://nginx.org/en/docs/
 #   * Official Russian Documentation: http://nginx.org/ru/docs/
 
-user              nginx;
+user              <%= $nginxUser %>;
 worker_processes  1;
 
 error_log   <%= $logDir %>/error.log;
 #error_log  <%= $logDir %>/error.log  notice;
 #error_log  <%= $logDir %>/error.log  info;
 
-<% if $fact['kernel'] != 'windows' { %>
+<% if $facts['osfamily'] != 'windows' { -%>
 pid        /var/run/nginx.pid;
 <% } -%>
 
