@@ -56,7 +56,7 @@ class nginx {
 		content => epp('nginx/nginx.conf.epp', {
 			nginxUser => $nginxUser,
 			logDir => $logDir,
-			configDir => $confDir,
+			configDir => $configDir,
 			serverBlock => $serverBlock,
 		}),
 		require => Package['nginx'],
