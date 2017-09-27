@@ -43,7 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
-  if $fact[is_virtual] == true {
+  if $facts['is_virtual'] == true {
     notify { "This is a ${capitalize($::virtual)} VM!": }
   }
 
