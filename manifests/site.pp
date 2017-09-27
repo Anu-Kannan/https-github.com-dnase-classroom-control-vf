@@ -45,7 +45,7 @@ node default {
   include role::classroom
  
   if $::is_virtual == true {
-  notify { "This is a ${capitalize ($::virtual)} VN!": }
+  notify { "This is a ${capitalize ($::virtual)} VM!": }
   }
 
     
