@@ -47,7 +47,7 @@ class nginx {
   
   file {'index.html':
     ensure  => file,
-    path => "${docroot}/index.html"
+    path => "${docroot}/index.html",
     source  => "${source}index.html",
   }
   
