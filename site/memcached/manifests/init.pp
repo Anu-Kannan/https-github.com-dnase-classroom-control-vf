@@ -5,7 +5,7 @@ class memcached {
 
   file { '/etc/sysconfig/memcached':
     ensure => file,
-    content => "PORT=\"1121\"\nUSER=\"memcached\"\nMAXCONN=\"96\"\nCACHESIZE=\"32\"\nOPTIONS=\"\"",
+    content => "PORT='1121'\nUSER='memcached'\nMAXCONN='96'\nCACHESIZE='32'\nOPTIONS=''",
     require => Package['memcached'],
   }
 
