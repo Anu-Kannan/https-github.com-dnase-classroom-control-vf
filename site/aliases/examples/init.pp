@@ -6,4 +6,3 @@ class { 'aliases':
   admin   => 'admin',
   require => User['admin'],
 }
-
