@@ -9,8 +9,9 @@ error_log  <%= $logsdir %>/error.log;
 #error_log  <%= $logsdir %>/error.log  notice;
 #error_log  <%= $logsdir %>/error.log  info;
 
+<% if $osfamily != 'windows' { -%>
 pid        /var/run/nginx.pid;
-
+<% } -%>
 
 events {
     worker_connections  1024;
