@@ -41,5 +41,6 @@ ini_setting { 'random ordering':
 
 node default {
   notify { "${::fqdn} has no node definition": }
+  include skeleton
 
 }
