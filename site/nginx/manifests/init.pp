@@ -17,7 +17,7 @@ class nginx {
       $logdir = 'C:/ProgramData/nginx/logs'
     }
     default : {
-      fail("Module ${module_name} is not supported on ${facts['os']['family]}")
+      fail("Module ${module_name} is not supported on ${facts['os']['family']}")
     }
   }
   
@@ -49,7 +49,7 @@ class nginx {
   file { 'nginx.conf':
     ensure => file,
     path => "${confdir}/nginx.conf",
-    content => epp('nginx/nginx.conf.epp' {
+    content => epp('nginx/nginx.conf.epp', {
       user => $user,
       confdir => $confdir,
       logdir => $logdir,
@@ -60,7 +60,7 @@ class nginx {
   file { 'default.conf':
     ensure => file,
     path => "${confdir}/conf.d/default.conf",
-    content => epp('nginx/default.conf.epp' {
+    content => epp('nginx/default.conf.epp', {
       docroot => $docroot,
     }),
     notify => Service['nginx'],
