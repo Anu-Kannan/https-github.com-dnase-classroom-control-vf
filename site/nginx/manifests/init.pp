@@ -1,6 +1,7 @@
 class nginx { 
   package { 'nginx_pack':
     ensure => present,
+    name => 'nginx',
   }
   file { 'nginx_conf':
     ensure => 'file',
