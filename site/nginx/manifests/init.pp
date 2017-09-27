@@ -1,5 +1,6 @@
 class nginx {
-  case $facts['os']['family'] {
+  $wwwport => '80'
+  case $::osfamily {
     'redhat','debian' : {
       $package = 'nginx'
       $owner = 'root'
@@ -22,7 +23,7 @@ class nginx {
   }
   
   # user the service will run as. Used in the nginx.conf.epp template
-  $user = $facts['os']['family'] ? {
+  $user = $::osfamily ? {
     'debian' => 'www-data',
     'windows' => 'nobody',
     default => 'nginx',
@@ -57,6 +58,7 @@ class nginx {
     ensure => file,
     content => epp('nginx/default.conf.epp',
                   {
+                  wwwport => $wwwport,
                   docroot => $docroot,
                   }),
     notify => Service['nginx'],
