@@ -2,8 +2,7 @@ class nginx {
 $service = 'nginx'  
 $port = '80'  
 case $::osfamily {    
-'RedHat', 
-'Debian': {      
+'RedHat', 'Debian': {      
 $package = 'nginx'      
 $owner = 'root'      
 $group = 'root'      
@@ -11,7 +10,8 @@ $docroot = '/var/www'      
 $confdir = '/etc/nginx'       
 $blockdir = '/etc/nginx/conf.d'       
 $logdir = '/var/log/nginx'     
-}     'windows': {       
+}     
+'windows': {       
 $package = 'nginx-service'      
 $owner = 'Administrator'       
 $group = 'Administrators'       
