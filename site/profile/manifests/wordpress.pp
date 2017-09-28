@@ -13,6 +13,6 @@ class profile::wordpress {
     docroot => '/opt/wordpress',
     priority => '00',
   }
-  
+  #note
   include ::wordpress
 }
