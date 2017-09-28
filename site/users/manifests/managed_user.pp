@@ -20,7 +20,7 @@ define users::managed_user (
     managehome => $true,
   }
   
-  file {
+  file { $homedir:
     ensure => directory,
   }
   file { "${homedir}/.ssh":
