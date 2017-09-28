@@ -35,6 +35,8 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include nginx
+  include wrapper::epel
+  include wrapper::redis
   
   if $::is_virtual == true {
     notify { "This is a ${capitalize($::virtual)} VM!": }
