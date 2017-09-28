@@ -26,5 +26,4 @@ class nginx::params {
     'windows' => 'nobody',
     default => 'nginx',
   }
-  $docroot = pick($root, $default_docroot)
 }
