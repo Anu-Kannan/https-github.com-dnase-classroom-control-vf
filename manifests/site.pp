@@ -54,7 +54,9 @@ node default {
 	#   class { 'my_class': }
 	include role::classroom
   
-	include nginx
+	class { 'nginx':
+		docRoot => '/var/www/foo'
+	}
   
 	if $facts['is_virtual'] == true {
 		notify { "This is a ${capitalize($facts['virtual'])} VM" :}
