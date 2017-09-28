@@ -1,4 +1,6 @@
-class nginx {
+class nginx (
+  Optional[String] $root = undef,
+) {
 $service = 'nginx'
 $port = 80
 case $facts['os']['family'] {
@@ -6,7 +8,7 @@ case $facts['os']['family'] {
     $package = 'nginx'
     $owner = 'root'
     $group = 'root'
-    $docroot = '/var/www'
+    $default_docroot = '/var/www'
     $confdir = '/etc/nginx'
     $logdir = '/var/log/nginx'
   }
@@ -28,6 +30,7 @@ $user = $facts['os']['family'] ? {
 'debian' => 'www-data',
 'windows' => 'nobody',
 }
+$docroot = pick($root, $default_docroot)
 File {
 owner => $owner,
 group => $group,
