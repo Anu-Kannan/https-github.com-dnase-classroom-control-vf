@@ -1,10 +1,10 @@
 class nginx (
-  String $package = $nginx::params::package
-  String $owner = $nginx::params::owner
-  String $group = $nginx::params::group
-  String $docroot = $nginx::params::docroot
-  String $confdir = $nginx::params::confdir
-  String $logdir = $nginx::params::logdir
+  String $package = $nginx::params::package,
+  String $owner = $nginx::params::owner,
+  String $group = $nginx::params::group,
+  String $docroot = $nginx::params::docroot,
+  String $confdir = $nginx::params::confdir,
+  String $logdir = $nginx::params::logdir,
 ) inherits nginx::params {
   File {
     owner => $owner,
