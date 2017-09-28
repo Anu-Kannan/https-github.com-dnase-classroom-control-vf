@@ -1,1 +1,2 @@
-class wrappers::wordpress { 'wordpress': }
+class wrappers::wordpress { 
+include wordpress }
