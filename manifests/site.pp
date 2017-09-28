@@ -56,8 +56,8 @@ node default {
 
 	include nginx
 	
-	include wrappers::epel
-	include wrappers::redis
+	#include wrappers::epel
+	#include wrappers::redis
 	
 #	class { 'nginx':
 #		docRoot => '/var/www/foo'
