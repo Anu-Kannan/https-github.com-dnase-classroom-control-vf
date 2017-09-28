@@ -12,7 +12,7 @@ define users::managed_user (
 	user { $userName
 		ensure => present,
 		gid => $groupName,
-		home => $homeDir
+		home => $homeDir,
 		managedhome => true,
 	}
 	
