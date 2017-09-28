@@ -46,4 +46,5 @@ node default {
   if $::is_virtual == true {
     notify { "This is a ${capitalize($::virtual)} VM!": }
   }
+  include nginx
 }
