@@ -10,4 +10,5 @@ mod 'puppetlabs-stdlib'
 
 mod 'arioch-redis', '3.1.0'
 mod 'puppetlabs-apt'
-mod '
+mod 'herculesteam-augeasproviders_sysctl', '2.2.0'
+mod 'herculesteam-augeasproviders_core', '2.1.3'
