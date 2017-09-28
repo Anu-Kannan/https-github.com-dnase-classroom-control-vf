@@ -11,7 +11,7 @@ class nginx (
 			$package = 'nginx'
 			$owner = 'root'
 			$group = 'root'
-			$docRoot = '/var/www'
+			$deafultDocRoot = '/var/www'
 			$configDir = '/etc/nginx'
 			$serverBlock = '/etc/nginx/conf.d'
 			$logDir = '/var/log/nginx'
@@ -21,7 +21,7 @@ class nginx (
 			$package = 'nginx-server'
 			$owner = 'Administrator'
 			$group = 'Administrator'
-			$docRoot = "${winPath}/html"
+			$deafultDocRoot = "${winPath}/html"
 			$configDir = "${winPath}"
 			$serverBlock = "${winPath}/conf.d"
 			$logDir = "${winPath}/logs"
@@ -32,7 +32,7 @@ class nginx (
 		'windows' => 'nobody',
 		default => 'nginx',
 	}
-	$docRoot = pick($root, $docRoot)
+	$docRoot = pick($root, $deafultDocRoot)
 	File {
 		owner => 'root',
 		group => 'root',
