@@ -8,7 +8,7 @@ class nginx::params {
       $packname = 'nginx'
       $owner    = 'root'
       $group    = 'root'
-      $default_docroot  = '/var/www'
+      $docroot  = '/var/www'
       $confdir  = '/etc/nginx'
       $servdir  = '/etc/nginx/conf.d'
       $logsdir  = '/var/log/nginx'
@@ -17,14 +17,12 @@ class nginx::params {
       $packname = 'nginx-service'
       $owner    = 'Administrator'
       $group    = 'Administrators'
-      $default_docroot  = 'C:/ProgramData/nginx/html'
+      $docroot  = 'C:/ProgramData/nginx/html'
       $confdir  = 'C:/ProgramData/nginx'
       $servdir  = 'C:/ProgramData/nginx/conf.d'
       $logsdir  = 'C:/ProgramData/nginx/logs'
     } # apply the Windows class
   }
-  
-  $docroot = pick($root,$default_root)
   
   $runas    = $::osfamily ? {
     'Debian' => 'www-data',
