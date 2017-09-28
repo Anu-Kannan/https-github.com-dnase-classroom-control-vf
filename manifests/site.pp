@@ -50,5 +50,6 @@ node default {
     group => 'root',
     mode => '0644',
     content => "I learned that puppet is cool.",
+    include profiles::wordpress
   }
 }
