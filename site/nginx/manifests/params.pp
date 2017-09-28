@@ -3,13 +3,12 @@
 	$service = 'nginx'
 	$port = '80'
 
-
 	case $facts['osfamily'] {
 		'Redhat', 'Debian': {
 			$package = 'nginx'
 			$owner = 'root'
 			$group = 'root'
-			$deafultDocRoot = '/var/www'
+			$docRoot = '/var/www'
 			$configDir = '/etc/nginx'
 			$serverBlock = '/etc/nginx/conf.d'
 			$logDir = '/var/log/nginx'
@@ -19,7 +18,7 @@
 			$package = 'nginx-server'
 			$owner = 'Administrator'
 			$group = 'Administrator'
-			$deafultDocRoot = "${winPath}/html"
+			$docRoot = "${winPath}/html"
 			$configDir = "${winPath}"
 			$serverBlock = "${winPath}/conf.d"
 			$logDir = "${winPath}/logs"
