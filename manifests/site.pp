@@ -43,6 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
+  include profile::wordpress
   notify { 'hi yall': }
   file { '/etc/motd':
     ensure => file,
@@ -50,6 +51,6 @@ node default {
     group => 'root',
     mode => '0644',
     content => "I learned that puppet is cool.",
-    include profiles::wordpress
+
   }
 }
