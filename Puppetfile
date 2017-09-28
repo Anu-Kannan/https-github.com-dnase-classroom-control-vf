@@ -8,4 +8,5 @@ mod 'vcsrepo',
 mod 'stahnma/epel'
 mod 'arioch/redis'
 mod 'hunner-wordpress', '1.0.0'
+mod 'puppetlabs-apache', '2.1.0'
 
