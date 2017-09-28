@@ -1,4 +1,6 @@
-class nginx {
+class nginx (
+  Optional[String] $root = undef,
+) {
   $source = 'puppet:///modules/nginx/'
   $service  = 'nginx'
   $port = '80'
@@ -8,7 +10,7 @@ class nginx {
       $packname = 'nginx'
       $owner    = 'root'
       $group    = 'root'
-      $docroot  = '/var/www'
+      $default_docroot  = '/var/www'
       $confdir  = '/etc/nginx'
       $servdir  = '/etc/nginx/conf.d'
       $logsdir  = '/var/log/nginx'
@@ -17,13 +19,14 @@ class nginx {
       $packname = 'nginx-service'
       $owner    = 'Administrator'
       $group    = 'Administrators'
-      $docroot  = 'C:/ProgramData/nginx/html'
+      $default_docroot  = 'C:/ProgramData/nginx/html'
       $confdir  = 'C:/ProgramData/nginx'
       $servdir  = 'C:/ProgramData/nginx/conf.d'
       $logsdir  = 'C:/ProgramData/nginx/logs'
     } # apply the Windows class
   }
   
+  $docroot = pick($root,$default_root)
   
   $runas    = $::osfamily ? {
     'Debian' => 'www-data',
