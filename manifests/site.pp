@@ -39,6 +39,7 @@ node default {
     notify { "This is a ${capitalize($::virtual)} VM!": }
   }
   
-  include nginx
-    
+  class {'nginx':
+    docroot => '/var/www-training',
+  }
 }
