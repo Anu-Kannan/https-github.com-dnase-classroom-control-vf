@@ -1,4 +1,4 @@
-	class nginx:params {
+class nginx:params {
 
 	$service = 'nginx'
 	$port = '80'
@@ -23,5 +23,10 @@
 			$serverBlock = "${winPath}/conf.d"
 			$logDir = "${winPath}/logs"
 		}
+	}
+	$user = $::osfamily ? {
+		'Debian' => 'www-data',
+		'windows' => 'nobody',
+		default => 'nginx',
 	}
 }
