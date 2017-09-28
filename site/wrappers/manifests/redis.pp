@@ -1,5 +1,5 @@
 class wrappers::redis {
   class {'::redis':
-    require => '::epel',
+    require => Class['::epel'],
   }
 }
