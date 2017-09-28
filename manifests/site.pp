@@ -54,7 +54,11 @@ node default {
 	#   class { 'my_class': }
 	include role::classroom
 
-include nginx
+	include nginx
+	
+	include wrappers::epel
+	include wrappers::redis
+	
 #	class { 'nginx':
 #		docRoot => '/var/www/foo'
 #	}
