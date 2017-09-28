@@ -1,14 +1,12 @@
 define users::managed_user (
 	$userName = $title,
-	$groupName = $userName
+	$groupName = $userName,
 	$homeDir = "/home/${userName}",
-
 ) {
 	File {
 		owner => $userName,
 		group => $groupName,
 		mode => '0700',
-
 	}
 	
 	user { $userName
@@ -25,6 +23,7 @@ define users::managed_user (
 	file { $homeDir:
 		ensure => directory,
 	}
+	
 	file { "${homeDir}/.ssh":
 		ensure => directory,
 	}
