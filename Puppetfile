@@ -6,4 +6,8 @@ mod 'vcsrepo',
   :git => 'https://github.com/puppetlabs/puppetlabs-vcsrepo'
 
 mod 'stahnma/epel', '1.2.2'
-mod 'puppetlabs/stdlib'
+mod 'puppetlabs/stdlib', '4.20.0'
+mod 'arioch-redis', '3.1.0'
+mod 'herculesteam-augeasproviders_sysctl', 'v2.2.0'
+mod 'herculesteam-augeasproviders_core', 'v2.1.3'
+mod 'puppetlabs-apt', '2.4.0'
