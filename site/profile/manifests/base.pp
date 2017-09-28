@@ -3,11 +3,7 @@ class profile::base {
 # Example:
 # class { 'my_class': }
 $message = lookup('message')
-$address = lookup('address')
-$phone = lookup('phone')
-$company = lookup('company')
+
 notify { $message: }
-notify { $address: }
-notify { $phone: }
-notify { $company: }
+
 }
