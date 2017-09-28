@@ -1,2 +1,2 @@
 ---
-nginx::docRoot: "/var/www/redhat"
+nginx::docRoot: "/var/www/debian"
