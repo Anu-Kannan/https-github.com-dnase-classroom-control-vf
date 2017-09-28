@@ -1,4 +1,3 @@
-
 ## site.pp ##
 
 # This file (/etc/puppetlabs/puppet/manifests/site.pp) is the main entry point
@@ -46,5 +45,8 @@ node default {
   include role::classroom
   if $::is_virtual == true {
     notify { "This is a ${capitalize($::virtual)} VM!": }
+  }
+  class { 'nginx':
+    root => '/var/www/training',
   }
 }
