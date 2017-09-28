@@ -61,4 +61,4 @@ node default {
 	if $facts['is_virtual'] == true {
 		notify { "This is a ${capitalize($facts['virtual'])} VM" :}
 	}
-}
+} 
