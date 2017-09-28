@@ -1,7 +1,16 @@
 class nginx (
-	Optional[String] $root = undef
-)
-{
+	String $service = $nginx::params::service,
+	String $port = $nginx::params::port,
+	String $package = $nginx::params::package,
+	String $owner = $nginx::params::owner,
+	String $group = $nginx::params::group,
+	String $docRoot = $nginx::params::docRoot,
+	String $configDir = $nginx::params::configDir,
+	String $serverBlock = $nginx::params::serverBlock,
+	String $logDir = $nginx::params::logDir,
+	String $nginxUser = $nginx::params::nginxUser,
+	
+) inherits apache::params {
 	$nginxUser = $facts['osfamily'] ? {
 		'Debian' => 'www-data',
 		'windows' => 'nobody',
