@@ -9,3 +9,4 @@ users::managed_user { 'parker':
 group { 'staff':
 ensure => present,
 }
+}
