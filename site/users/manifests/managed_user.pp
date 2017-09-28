@@ -9,14 +9,14 @@ define users::managed_user (
 		mode => '0700',
 	}
 	
-	user { $userName
+	user { $userName:
 		ensure => present,
 		gid => $groupName,
 		home => $homeDir,
 		managedhome => true,
 	}
 	
-	group { $username
+	group { $username:
 		ensure => present,
 	}	
 	
