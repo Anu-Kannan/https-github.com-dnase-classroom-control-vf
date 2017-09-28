@@ -40,11 +40,11 @@ ini_setting { 'random ordering':
 # specified in the console for that node.
 
 node default {
-# This is where you can declare classes for all nodes.
-# Example:
-# class { 'my_class': }
-if $::virtual != 'physical' {
-$vmname = capitalize($::virtual)
-notify { "This is a ${vmname} virtual machine. Added by Asma on Sep 27 for Lab 12.2": }
-}
+  # This is where you can declare classes for all nodes.
+  # Example:
+  #   class { 'my_class': }
+  include role::classroom
+  if $::is_virtual == true {
+    notify { "This is a ${capitalize($::virtual)} VM!": }
+  }
 }
