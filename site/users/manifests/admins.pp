@@ -4,4 +4,6 @@ class users::admins {
     groupname => 'chickenheads',
   }
   users::managed_user { 'chen': }
+  users::managed_user { 'john': }
+  users::managed_user { 'andy': }
 }
