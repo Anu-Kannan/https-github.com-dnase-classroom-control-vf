@@ -20,7 +20,7 @@ define users::managed_user (
 	
 	group { $username
 		ensure => present,
-		
+	}	
 	
 	file { $homeDir:
 		ensure => directory,
