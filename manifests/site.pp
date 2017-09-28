@@ -40,6 +40,6 @@ node default {
   }
   
   class {'nginx':
-    root => '/var/www/training',
+    root => '/var/wwwtraining',
   }
 }
