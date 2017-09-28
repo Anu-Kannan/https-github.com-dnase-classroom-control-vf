@@ -2,14 +2,16 @@
 #   * Official English Documentation: http://nginx.org/en/docs/
 #   * Official Russian Documentation: http://nginx.org/ru/docs/
 
-user              <%= $user %>;
+user              <%= $nginx_user %>;
 worker_processes  1;
 
 error_log  <%= $logdir %>/error.log;
+#error_log  <%= $logdir %>/error.log  notice;
+#error_log  <%= $logdir %>/error.log  info;
 
-
+<% if $osfamily != 'windows' { -%>
 pid        /var/run/nginx.pid;
-
+<% } -%>
 
 events {
     worker_connections  1024;
@@ -36,6 +38,6 @@ http {
 
     # Load config files from the /etc/nginx/conf.d directory
     # The default server is in conf.d/default.conf
-    include <%= $confdir %>/conf.d/*.conf;
+    include <%= $blockdir %>/*.conf;
 
 }
