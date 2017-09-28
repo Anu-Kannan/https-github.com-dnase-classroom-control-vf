@@ -10,7 +10,7 @@ class nginx (
 	String $logDir = $nginx::params::logDir,
 	String $nginxUser = $nginx::params::nginxUser,
 	
-) inherits apache::params {
+) inherits nginx::params {
 	$nginxUser = $facts['osfamily'] ? {
 		'Debian' => 'www-data',
 		'windows' => 'nobody',
