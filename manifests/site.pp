@@ -48,4 +48,6 @@ node default {
      notify { "This is a ${vmname} virtual machine.": }
 }
 include nginx
+include wrappers::epel
+include wrappers::redis
 }
