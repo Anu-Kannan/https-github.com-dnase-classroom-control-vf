@@ -16,7 +16,7 @@ class nginx (
 		'windows' => 'nobody',
 		default => 'nginx',
 	}
-	$docRoot = pick($root, $deafultDocRoot)
+	
 	File {
 		owner => 'root',
 		group => 'root',
