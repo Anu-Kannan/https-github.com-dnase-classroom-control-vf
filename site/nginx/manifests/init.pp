@@ -43,11 +43,11 @@ class nginx (
 		ensure => present,
 	}
 	
-	file { '/var/www':
+	file { $docRoot:
 		ensure => directory,
 	}
 	
-	file { '/var/www/index.html':
+	file { "${docRoot}/index.html":
 		ensure => file,
 		source => 'puppet:///modules/nginx/index.html',
 	}
