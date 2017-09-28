@@ -1,20 +1,29 @@
-class nginx {
+class nginx (
+Optional[String] $root = undef,
+Boolean $highperf = true,
+) {
 case $facts['os']['family'] {
 'redhat','debian' : {
 $package = 'nginx'
 $owner = 'root'
 $group = 'root'
-$docroot = '/var/www'
+# $docroot = '/var/www'
 $confdir = '/etc/nginx'
+$blockdir = '/etc/nginx/conf.d'
 $logdir = '/var/log/nginx'
+# this will be used if we don't pass in a value
+$default_docroot = '/var/www'
 }
 'windows' : {
 $package = 'nginx-service'
 $owner = 'Administrator'
 $group = 'Administrators'
-$docroot = 'C:/ProgramData/nginx/html'
+# $docroot = 'C:/ProgramData/nginx/html'
 $confdir = 'C:/ProgramData/nginx'
+$blockdir = 'C:/ProgramData/nginx/conf.d'
 $logdir = 'C:/ProgramData/nginx/logs'
+# this will be used if we don't pass in a value
+$default_docroot = 'C:/ProgramData/nginx/html'
 }
 default : {
 fail("Module ${module_name} is not supported on ${facts['os']['family']}")
@@ -25,42 +34,4 @@ $user = $facts['os']['family'] ? {
 'redhat' => 'nginx',
 'debian' => 'www-data',
 'windows' => 'nobody',
-}
-File {
-owner => $owner,
-group => $group,
-mode => '0664',
-}
-package { $package:
-ensure => present,
-}
-file { [ $docroot, "${confdir}/conf.d" ]:
-ensure => directory,
-}
-file { "${docroot}/index.html":
-ensure => file,
-source => 'puppet:///modules/nginx/index.html',
-}
-file { "${confdir}/nginx.conf":
-ensure => file,
-content => epp('nginx/nginx.conf.epp',
-{
-user => $user,
-confdir => $confdir,
-logdir => $logdir,
-}),
-notify => Service['nginx'],
-}
-file { "${confdir}/conf.d/default.conf":
-ensure => file,
-content => epp('nginx/default.conf.epp',
-{
-docroot => $docroot,
-}),
-notify => Service['nginx'],
-}
-service { 'nginx':
-ensure => running,
-enable => true,
-}
 }
