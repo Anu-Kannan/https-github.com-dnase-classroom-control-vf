@@ -1,4 +1,5 @@
 class nginx (
+  Optional[String] $root = undef,
   String $source = $nginx::params::source,
   String $service = $nginx::params::service,
   String $port = $nginx::params::port,
