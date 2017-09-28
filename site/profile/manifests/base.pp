@@ -1,4 +1,3 @@
 class profile::base {
-  $message = lookup('message')
-  notify { $message: }
+  notify { 'This is my puppet machine.': }
 }
