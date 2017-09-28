@@ -43,6 +43,6 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
- 
+ include profile::wordpress
   
 }
