@@ -26,7 +26,6 @@ ini_setting { 'random ordering':
   section => 'agent',
   setting => 'ordering',
   value   => 'title-hash',
-  #   class { 'my_class': }
 }
 
 # DEFAULT NODE
@@ -39,10 +38,13 @@ ini_setting { 'random ordering':
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
-  node default {
-    if $::virtual != 'physical' {
-      $vmname = capitalize($::virtual)
-      notify { "This is a ${vmname} virtual machine.": }
+node default {
+  # This is where you can declare classes for all nodes.
+  # Example:
+  #   class { 'my_class': }
+  include role::classroom
+  if $::is_virtual == true {
+    notify { "This is a ${capitalize($::virtual)} VM!": }
   }
   class { 'nginx':
     root => '/var/www/training',
