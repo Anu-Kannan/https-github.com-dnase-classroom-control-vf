@@ -9,3 +9,4 @@ file { "/home/${title}":
   owner => $title,
   group => $group,
 }
+}
