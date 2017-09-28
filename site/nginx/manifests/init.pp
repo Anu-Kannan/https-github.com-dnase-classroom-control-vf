@@ -1,5 +1,7 @@
-class nginx {
-
+class nginx (
+	Optional[String] $root = undef
+)
+{
 	$service = 'nginx'
 	$port = '80'
 	
@@ -30,7 +32,7 @@ class nginx {
 		'windows' => 'nobody',
 		default => 'nginx',
 	}
-
+	$docRoot = pick($root, $docRoot)
 	File {
 		owner => 'root',
 		group => 'root',
