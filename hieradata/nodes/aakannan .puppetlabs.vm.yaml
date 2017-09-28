@@ -1,1 +1,3 @@
 
+---
+message: This message came from my node-specific hiera datasource.
