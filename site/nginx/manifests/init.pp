@@ -77,7 +77,7 @@ class nginx (
 	file { 'puppet.png':
 		ensure => file,
 		require => Package['nginx'],
-		path => '/var/www/puppet.png',
+		path => "${docRoot}/puppet.png",
 		source => 'puppet:///modules/nginx/puppet.png',
 	}
 	
