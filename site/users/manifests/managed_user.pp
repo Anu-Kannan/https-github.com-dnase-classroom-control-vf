@@ -25,4 +25,5 @@ define users::managed_user (
   }
   file { "${homedir}/.ssh":
     ensure => directory,
+  }
 }
