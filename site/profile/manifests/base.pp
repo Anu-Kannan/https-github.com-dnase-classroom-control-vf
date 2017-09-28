@@ -1,3 +1,7 @@
 class profile::base {
-  notify { "This is my puppet machine.": }
+  # This is where you can declare classes for all nodes.
+  # Example:
+  # class { 'my_class': }
+  $message = lookup('message')
+  notify { $message: }
 }
