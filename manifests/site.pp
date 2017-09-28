@@ -46,4 +46,6 @@ node default {
   if $::is_virtual == true {    
   notify { "This is a ${capitalize($::virtual)} VM!": }  }
     class { 'nginx':}
+    include wrappers::epel
+    include wrappers::redis
 }
