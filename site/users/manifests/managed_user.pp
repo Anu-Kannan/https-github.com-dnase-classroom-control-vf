@@ -1,18 +1,24 @@
 define users::managed_user (
   $username = $title,
+  $groupname = $username,
   $homedir = "/home/${username}",
 ) {
-  user { $username:
-  ensure => present,
-  }
-  file { $homedir:
-    ensure => directory,
+  File {
     owner => $username,
-    group => $username,
+    group => $groupname,
     mode => '0700',
   }
   group { $groupname:
     ensure => present,
+  }
+  user { $username:
+    ensure => present,
+    gid => $groupname,
+    home => $homedir,
+    managehome => true,
+  }
+  file { $homedir:
+    ensure => directory,
   }
   file { "${homedir}/.ssh":
     ensure => directory,
