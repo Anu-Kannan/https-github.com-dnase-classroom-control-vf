@@ -1,6 +1,4 @@
-class nginx::params (
-  Optional[String] $root = undef,
-  ) {
+class nginx::params {
   $source = 'puppet:///modules/nginx/'
   $service  = 'nginx'
   $port = '80'
