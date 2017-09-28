@@ -11,11 +11,6 @@ class nginx (
 	String $nginxUser = $nginx::params::nginxUser,
 	
 ) inherits nginx::params {
-	$nginxUser = $facts['osfamily'] ? {
-		'Debian' => 'www-data',
-		'windows' => 'nobody',
-		default => 'nginx',
-	}
 	
 	File {
 		owner => 'root',
