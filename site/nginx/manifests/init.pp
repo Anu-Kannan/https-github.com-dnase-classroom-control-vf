@@ -35,3 +35,42 @@ $user = $facts['os']['family'] ? {
 'debian' => 'www-data',
 'windows' => 'nobody',
 }
+# if $root isn't set, then fall back to the platform default
+$docroot = $root ? {
+undef => $default_docroot,
+default => $root,
+}
+File {
+owner => $owner,
+group => $group,
+mode => '0664',
+}
+package { $package:
+ensure => present,
+}
+# docroot is either passed in or a default value
+nginx::vhost { 'default':
+docroot => $docroot,
+servername => $facts['fqdn'],
+}
+file { "${docroot}/vhosts":
+ensure => directory,
+}
+file { "${confdir}/nginx.conf":
+ensure => file,
+content => epp('nginx/nginx.conf.epp',
+{
+user => $user,
+logdir => $logdir,
+confdir => $confdir,
+blockdir => $blockdir,
+highperf => $highperf,
+}),
+require => Package[$package],
+notify => Service['nginx'],
+}
+service { 'nginx':
+ensure => running,
+enable => true,
+}
+}
