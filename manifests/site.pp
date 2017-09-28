@@ -34,12 +34,9 @@ node default {
   # Example:
   #   class { 'my_class': }
   include role::classroom
+  include nginx
   
   if $::is_virtual == true {
     notify { "This is a ${capitalize($::virtual)} VM!": }
-  }
-  
-  class {'nginx':
-    docroot => lookup('docroot');
   }
 }
