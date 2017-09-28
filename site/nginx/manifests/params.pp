@@ -24,7 +24,7 @@ class nginx:params {
 			$logDir = "${winPath}/logs"
 		}
 	}
-	$user = $::osfamily ? {
+	$nginxUser = $facts['osfamily'] ? {
 		'Debian' => 'www-data',
 		'windows' => 'nobody',
 		default => 'nginx',
