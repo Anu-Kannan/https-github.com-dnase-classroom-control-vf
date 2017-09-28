@@ -1,3 +1,3 @@
 class wrappers::wordpress {
-  include $::wordpress
+  include ::wordpress
 }
