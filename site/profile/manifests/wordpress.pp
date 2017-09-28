@@ -2,6 +2,7 @@ class profile::wordpress {
 	class { '::mysql::server':
 		root_password => 'puppet4thewin',
 	}
+	
 	class { 'mysql::bindings':
 		php_enable => true
 	}
@@ -16,7 +17,4 @@ class profile::wordpress {
 	}
 	
 	include ::wordpress
-	
-	
-	
 }
