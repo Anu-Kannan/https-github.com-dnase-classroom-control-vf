@@ -21,11 +21,11 @@ File { backup => false }
 
 # Randomize enforcement order to help understand relationships
 ini_setting { 'random ordering':
-  ensure  => present,
-  path    => "${settings::confdir}/puppet.conf",
-  section => 'agent',
-  setting => 'ordering',
-  value   => 'title-hash',
+	ensure  => present,
+	path    => "${settings::confdir}/puppet.conf",
+	section => 'agent',
+	setting => 'ordering',
+	value   => 'title-hash',
 }
 
 # DEFAULT NODE
@@ -49,17 +49,16 @@ ini_setting { 'random ordering':
 #}
 
 node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
-  include role::classroom
+	# This is where you can declare classes for all nodes.
+	# Example:
+	#   class { 'my_class': }
+	include role::classroom
   
-  if $facts['is_virtual'] == true {
-    notify { "This is a ${capitalize($facts['virtual'])} VM" :}
-  }
+	class { 'nginx' :
+		root => '/var/www/training',
+	}
+  
+	if $facts['is_virtual'] == true {
+		notify { "This is a ${capitalize($facts['virtual'])} VM" :}
+	}
 }
-
-
-
-
-  
