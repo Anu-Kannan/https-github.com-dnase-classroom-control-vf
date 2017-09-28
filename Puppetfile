@@ -12,3 +12,8 @@ mod 'arioch-redis', '3.1.0'
 mod 'puppetlabs-apt'
 mod 'herculesteam-augeasproviders_sysctl', '2.2.0'
 mod 'herculesteam-augeasproviders_core', '2.1.3'
+
+mod 'hunner-wordpress', '1.0.0'
+mod 'puppetlabs-concat', '4.0.1'
+mod 'puppetlabs-mysql', '4.0.1'
+mod 'puppetlabs-stdlib', '4.20.0'
